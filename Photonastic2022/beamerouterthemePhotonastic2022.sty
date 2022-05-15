@@ -1,0 +1,93 @@
+% Copyright 2022 by Orlando Villegas
+
+% Outer theme
+% -----------
+%    * frame background.
+%    * The head- and footline.
+%    * The sidebars.
+%    * The logo.
+%    * The frame title.
+
+\mode<presentation>
+
+%% logo
+%% ----
+% remove default logo
+\logo{}
+
+%% frame background
+%% ----------------
+\setbeamertemplate{background}{
+    \begin{tikzpicture}
+        \useasboundingbox (0, 0) rectangle (\paperwidth, \paperheight);
+        \ifnum\thepage=1\relax
+            % title page
+            \node[anchor=north west, yshift=-.05\paperheight, xshift=.05\paperheight] at (0, \paperheight)
+                {\includegraphics[width=0.12\paperwidth]{photonastic_logo.png}};
+            \node[anchor=north west, yshift=-.05\paperheight, xshift=.05\paperheight] at (.8\paperwidth, \paperheight)
+                {\includegraphics[height=3cm]{logo_chimieparistech.png}};
+            \node[anchor=north west, yshift=-.05\paperheight, xshift=.05\paperheight] at (.8\paperwidth, .3\paperheight)
+                {\includegraphics[height=2cm]{log_cnrs.png}};
+            \node[anchor=north west, yshift=-.05\paperheight, xshift=.05\paperheight] at (.55\paperwidth, .3\paperheight)
+                {\includegraphics[height=1.7cm]{logo_I-CLeHS.png}};
+            \node[BlueGrey3, anchor=west, text width=.5\paperwidth] at (1, .1\paperheight)
+                {{\bfseries\insertshortauthor}\par
+                 \insertinstitute\par
+                 \insertdate};
+                 
+            %\node[BlueGrey3, align=center, text width=.6\paperwidth] at (.5\paperwidth, .34\paperheight) {
+            %{\Large Directors:}\\
+            %{\Large Dr. Isabelle Baraille$^1$}\\
+            %{\Large Dr. Socrates Acevedo$^2$}\\
+            %\vspace{0.2cm}
+            %$^1$Institut des sciences analytiques et de Physico-Chimie pour l'Environnement et les\\ Mat\'eriaux\\
+            %{\bf Universit\'e de Pau et des Pays de l'Adour}\\
+            %\vspace{0.2cm}
+            %$^2$Laboratorio de Fisicoqu\'imica de Hidrocarburos\\
+            %{\bf Universidad Central de Venezuela}\\
+            %\vspace{0.2cm}
+            %{\Large March 2022}
+            %};
+        \else
+            % other
+            \node[BlueGrey3, anchor=west, text width=.7\paperwidth, font={\footnotesize}] at (.25, .75)
+                {{\bfseries\insertshorttitle}\par
+                 \hbox{\insertshortauthor, \insertshortinstitute}\par
+                 \insertdate};
+            \node[BlueGrey3, anchor=south east, xshift=-5mm, yshift=2mm, font={\small}] at (\paperwidth, 0)
+                {\insertframenumber{} / \inserttotalframenumber};
+        \fi
+        % \UPPAtriangles
+    \end{tikzpicture}
+}
+
+\setbeamercolor{frametitle}{parent=subsection in head/foot}
+\setbeamercolor{frametitle right}{parent=section in head/foot}
+
+\pgfdeclarehorizontalshading[frametitle.bg,frametitle right.bg]{beamer@frametitleshade}{\paperheight}{%
+  color(0pt)=(frametitle.bg);
+  color(\paperwidth)=(frametitle right.bg)
+}
+
+\pgfdeclareverticalshading{beamer@topshade}{2\paperwidth}{%
+  color(0pt)=(pgftransparent!100);
+  color(8pt)=(pgftransparent!0)
+}
+
+\pgfdeclarefading{beamer@topshadowmask}{\pgfuseshading{beamer@topshade}}
+
+\addtobeamertemplate{headline}
+{}
+{%
+  \vskip0pt
+  \begin{pgfpicture}
+    \pgfpathrectangle{\pgfpoint{0pt}{-4pt}}{\pgfpoint{\paperwidth}{4pt}}%
+    \pgfsetfading{beamer@topshadowmask}{}%
+    \pgfusepath{fill}%
+  \end{pgfpicture}
+  \vskip-2pt
+}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\mode<all>

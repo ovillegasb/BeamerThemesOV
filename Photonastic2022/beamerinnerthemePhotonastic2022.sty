@@ -1,0 +1,70 @@
+% Copyright 2022 by Orlando Villegas
+
+% Inner theme
+% -----------
+%     * Title and part pages.
+%     * Itemize environments.
+%     * Enumerate environments.
+%     * Description environments.
+%     * Block environments.
+%     * Theorem and proof environments.
+%     * Figures and tables.
+%     * Footnotes.
+%     * Bibliography entries.
+
+\mode<presentation>
+
+%% Title page
+%% ----------
+\setbeamertemplate{title page}{%
+    \vspace{1.5cm}
+    \begin{beamercolorbox}[wd=\textwidth, center]{title page title}
+        \usebeamerfont{title page title}
+        \noindent\inserttitle
+    \end{beamercolorbox}
+
+    \vspace{1cm plus 5mm}
+
+    \begin{beamercolorbox}[wd=\textwidth, center]{title page author}
+        \usebeamerfont{title page author}
+        \noindent\begin{flushleft}\insertauthor\end{flushleft}
+    \end{beamercolorbox}
+}
+
+%%\begin{tikzpicture}
+%%    \node[anchor=east] at ([yshift=-50pt]current page.north east) (author) {
+%%    \parbox[t]{.6\paperwidth}{\raggedleft%
+%%    \usebeamerfont{author}\insertauthor}
+%%    };
+%%\end{tikzpicture}
+
+
+%%\node[anchor=east] at ([yshift=-50pt]current page.north east) (title)
+%%  {\parbox[t]{.6\paperwidth}{\raggedleft%
+%%    \usebeamerfont{author}\textcolor{orange}{%
+%%    {\insertauthor}
+%%    }}
+%%};
+
+%    \hskip-.5\beamer@textmargin%
+%    \begin{beamercolorbox}[wd=\textwidth, center]{title page title}
+%        \usebeamerfont{title page title}
+%        \noindent\inserttitle
+%    \end{beamercolorbox}
+%
+%    \vspace{1cm plus 5mm}
+%
+%    \hskip-.5\beamer@textmargin%
+%    \begin{beamercolorbox}[wd=\textwidth, center]{title page author}
+%        \usebeamerfont{title page author}
+%        \noindent\begin{flushleft}\insertauthor\end{flushleft}
+%    \end{beamercolorbox}
+
+%% remove navigation symbols
+%% -------------------------
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{items}[ball]
+
+
+\mode<all>
