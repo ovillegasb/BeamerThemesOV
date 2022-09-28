@@ -1,0 +1,18 @@
+\documentclass[10pt]{beamer}
+
+\usetheme{}
+
+\usepackage{adjustbox}
+\usepackage{tikz}
+
+\geometry{paperwidth=210mm,paperheight=120mm}
+
+
+\begin{document}
+\begin{frame}{Title}
+\begin{adjustbox}{max totalsize={\linewidth}{\textheight},center}
+<>
+\end{adjustbox}
+\end{frame}
+
+\end{document}
